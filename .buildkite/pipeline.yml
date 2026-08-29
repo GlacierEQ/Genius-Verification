@@ -1,0 +1,13 @@
+steps:
+  - label: ":python: Contract validate"
+    key: validate
+    command:
+      - pip install pyyaml
+      - python tools/validate.py .
+    plugins:
+      - docker#v5.12.0:
+          image: "python:3.13-slim"
+          always-pull: true
+          workdir: /workdir
+          volumes:
+            - "./:/workdir"
