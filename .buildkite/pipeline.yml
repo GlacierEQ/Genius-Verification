@@ -16,6 +16,7 @@ steps:
       - docker#v5.14.0:
           image: "python:3.13-slim"
           always-pull: true
+          propagate-environment: true
 
   - label: ":receipt: Buildkite receipt"
     key: receipt
@@ -30,3 +31,4 @@ steps:
       - docker#v5.14.0:
           image: "python:3.13-slim"
           always-pull: true
+          propagate-environment: true
