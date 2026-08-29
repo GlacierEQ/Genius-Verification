@@ -24,3 +24,8 @@ consumes:
     capability: mastery.kernel.capability-schema
     minimum_spec_version: 1
     reason: Shared machine-readable universal capability contract.
+
+  - repository: Genius-Mastery
+    capability: mastery.kernel.teaching-contract
+    minimum_spec_version: 1
+    reason: Shared reconstruction, transfer, and teaching-evidence contract.
