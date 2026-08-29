@@ -34,16 +34,9 @@ steps:
       mkdir -p .verification-artifacts
       pytest -q tests/ --junitxml=.verification-artifacts/junit.xml
       sha256sum .verification-artifacts/junit.xml > .verification-artifacts/junit.xml.sha256
-      python tools/buildkite_receipt.py \
-        --repository Genius-Verification \
-        --output .verification-artifacts/buildkite-verified-receipt.json \
-        --artifact .verification-artifacts/junit.xml \
-        --artifact .verification-artifacts/junit.xml.sha256
     artifact_paths:
       - ".verification-artifacts/junit.xml"
       - ".verification-artifacts/junit.xml.sha256"
-      - ".verification-artifacts/buildkite-verified-receipt.json"
-      - ".verification-artifacts/buildkite-verified-receipt.json.sha256"
     plugins:
       - docker#v5.14.0:
           image: "python:3.13-slim"
@@ -51,8 +44,21 @@ steps:
           pull-retries: 2
           environment:
             - "BUILDKITE_COMMIT"
-            - "BUILDKITE_BRANCH"
-            - "BUILDKITE_BUILD_ID"
-            - "BUILDKITE_BUILD_NUMBER"
             - "BUILDKITE_PIPELINE_SLUG"
-            - "BUILDKITE_ORGANIZATION_SLUG"
+
+  - label: ":receipt: Terminal evidence receipt"
+    key: receipt
+    depends_on: verify
+    timeout_in_minutes: 5
+    command: |
+      set -euo pipefail
+      buildkite-agent artifact download ".verification-artifacts/junit.xml" .
+      buildkite-agent artifact download ".verification-artifacts/junit.xml.sha256" .
+      python3 tools/buildkite_receipt.py \
+        --repository Genius-Verification \
+        --output artifacts/buildkite/verified-ci-receipt.json \
+        --artifact .verification-artifacts/junit.xml \
+        --artifact .verification-artifacts/junit.xml.sha256
+    artifact_paths:
+      - "artifacts/buildkite/verified-ci-receipt.json"
+      - "artifacts/buildkite/verified-ci-receipt.json.sha256"
