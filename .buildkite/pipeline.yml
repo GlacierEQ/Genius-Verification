@@ -1,13 +1,18 @@
+env:
+  PYTHON_VERSION: "3.13"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+
 steps:
   - label: ":python: Contract validate"
     key: validate
+    timeout_in_minutes: 10
     command:
+      - python --version
       - pip install pyyaml
       - python tools/validate.py .
+      - python -m compileall -q tools
     plugins:
-      - docker#v5.12.0:
+      - docker#v5.14.0:
           image: "python:3.13-slim"
           always-pull: true
-          workdir: /workdir
-          volumes:
-            - "./:/workdir"
