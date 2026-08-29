@@ -16,3 +16,11 @@ consumes:
     capability: mastery.kernel.schemas
     minimum_spec_version: 1
     reason: Shared contracts and identity rules.
+  - repository: Genius-Mastery
+    capability: mastery.kernel.capability-anatomy
+    minimum_spec_version: 1
+    reason: Shared kernel-up decomposition model for domain capabilities.
+  - repository: Genius-Mastery
+    capability: mastery.kernel.capability-schema
+    minimum_spec_version: 1
+    reason: Shared machine-readable universal capability contract.
