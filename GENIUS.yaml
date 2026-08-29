@@ -1,0 +1,22 @@
+schema_version: 2
+repository: Genius-Verification
+purpose: Verification
+family: Genius
+doctrine: mastery-not-skills
+mastery_loop:
+  - map
+  - research
+  - model
+  - build
+  - break
+  - measure
+  - verify
+  - operate
+  - explain
+  - synthesize
+  - prove
+  - expand
+evidence_required: true
+growth_model: open-ended-cumulative
+mastery_representation: claim-evidence-graph+vector
+composition_contract: interfaces/COMPOSITION.yaml

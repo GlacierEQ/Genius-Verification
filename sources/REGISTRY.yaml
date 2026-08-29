@@ -1,0 +1,68 @@
+schema_version: 1
+sources:
+  - id: src-hypothesis
+    title: Hypothesis Property-Based Testing
+    url: https://hypothesis.readthedocs.io/en/latest/
+    authority: primary
+    publisher: Hypothesis project
+    domain_tags: [property-testing]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-08-29"
+    supports_claims: [verif-property-method-001]
+    challenges_claims: []
+  - id: src-libfuzzer
+    title: LLVM libFuzzer
+    url: https://llvm.org/docs/LibFuzzer.html
+    authority: primary
+    publisher: LLVM Project
+    domain_tags: [fuzzing]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-08-29"
+    supports_claims: []
+    challenges_claims: []
+  - id: src-asan
+    title: AddressSanitizer
+    url: https://clang.llvm.org/docs/AddressSanitizer.html
+    authority: primary
+    publisher: LLVM/Clang
+    domain_tags: [sanitizers]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-08-29"
+    supports_claims: []
+    challenges_claims: []
+  - id: src-tsan
+    title: ThreadSanitizer
+    url: https://clang.llvm.org/docs/ThreadSanitizer.html
+    authority: primary
+    publisher: LLVM/Clang
+    domain_tags: [sanitizers, concurrency]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-08-29"
+    supports_claims: []
+    challenges_claims: []
+  - id: src-learntla
+    title: Learn TLA+
+    url: https://www.learntla.com/
+    authority: specialist
+    publisher: Hillel Wayne / community
+    domain_tags: [model-checking, formal]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-08-29"
+    supports_claims: [verif-model-check-001]
+    challenges_claims: []
+  - id: src-codeql
+    title: GitHub CodeQL Code Scanning
+    url: https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning
+    authority: primary
+    publisher: GitHub
+    domain_tags: [static-analysis]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-08-29"
+    supports_claims: []
+    challenges_claims: []

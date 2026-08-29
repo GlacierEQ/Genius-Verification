@@ -1,0 +1,11 @@
+schema_version: 1
+items:
+  - id: frontier-verif-001
+    question: Can a shared evidence schema make a model-checking counterexample from this repo automatically usable as counterevidence in Genius-Distributed-Systems?
+    why_it_matters: Cross-repo composition of negative results is a core family goal.
+    related_claims: [verif-counterexample-001]
+    dependencies: [Genius-Verification, Genius-Distributed-Systems]
+    evidence_to_resolve:
+      - composition receipt
+      - linked counterexample artifact
+    status: open

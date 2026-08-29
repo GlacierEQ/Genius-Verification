@@ -1,0 +1,11 @@
+schema_version: 1
+near_term:
+  - Property-testing method claim backed by shared challenge with Genius-Code
+  - Minimal libFuzzer or atheris target for a toy parser
+  - TLA+/PlusCal skeleton for a simple mutual-exclusion or queue claim
+mid_term:
+  - Sanitizer CI matrix templates
+  - Differential testing pattern library
+frontier:
+  - Automated challenge generation from weak vector dimensions
+  - Cross-repo evidence linkage for model-checked protocols used by Genius-Distributed-Systems

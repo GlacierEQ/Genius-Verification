@@ -1,0 +1,27 @@
+schema_version: 1
+challenges:
+  - id: ch-verif-property-link-001
+    tier: foundation
+    objective: Link or reproduce a property-based challenge whose evidence is accepted by Genius-Code (or local equivalent) and emit a receipt.
+    prerequisites: []
+    success_criteria:
+      - Properties encode invariants, not mere examples
+      - At least one deliberate fault is detected
+      - Receipt written with environment and artifact hash
+    failure_criteria:
+      - Only example tests presented as property tests
+    evidence_emitted: [property_test]
+    claims_tested: [verif-property-method-001]
+    reproducibility: tool versions recorded
+  - id: ch-verif-tla-mutex-001
+    tier: reproduction
+    objective: Model a simple mutual-exclusion protocol in TLA+/PlusCal and check the mutex invariant; produce a counterexample if the model is broken.
+    prerequisites: []
+    success_criteria:
+      - Model + invariant checked
+      - Receipt includes TLC/Apalache (or equivalent) command and result
+    failure_criteria:
+      - Model never executed
+    evidence_emitted: [model_check]
+    claims_tested: [verif-model-check-001]
+    reproducibility: tool version + model hash

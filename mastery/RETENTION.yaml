@@ -1,0 +1,7 @@
+schema_version: 1
+strategy: spaced-revalidation+transfer
+policies:
+  - revalidate when tool versions, language runtimes, or threat models change
+  - preserve failed/counterexample receipts permanently
+  - single green run never grants permanent mastery status
+reviews: []

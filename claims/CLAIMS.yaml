@@ -1,0 +1,36 @@
+schema_version: 1
+claims:
+  - id: verif-property-method-001
+    statement: Property-based testing can systematically explore input classes that hand-written example tests miss, when properties encode true invariants.
+    dimension: verification
+    status: mapped
+    source_refs:
+      - src-hypothesis
+    evidence_refs: []
+    challenge_refs: []
+    counterevidence_refs: []
+  - id: verif-model-check-001
+    statement: Model checking can exhaustively explore finite (or bounded) state spaces for concurrency and protocol invariants that example tests cannot cover.
+    dimension: verification
+    status: mapped
+    source_refs:
+      - src-learntla
+    evidence_refs: []
+    challenge_refs: []
+    counterevidence_refs: []
+  - id: verif-evidence-receipt-001
+    statement: A verification run that supports a claim must be able to emit a durable receipt containing command, environment, result, and artifact identity (hash when local).
+    dimension: foundations
+    status: mapped
+    source_refs: []
+    evidence_refs: []
+    challenge_refs: []
+    counterevidence_refs: []
+  - id: verif-counterexample-001
+    statement: Counterexamples and failing runs are first-class evidence; discarding them to preserve a narrative weakens the repository.
+    dimension: foundations
+    status: mapped
+    source_refs: []
+    evidence_refs: []
+    challenge_refs: []
+    counterevidence_refs: []
