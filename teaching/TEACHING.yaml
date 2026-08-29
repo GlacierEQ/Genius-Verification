@@ -1,0 +1,46 @@
+schema_version: 1
+teacher: Genius-Verification
+subject: Verification mastery: claims, tests, fuzzing, formal methods, readback, provenance, and counterevidence
+
+method:
+  explain:
+    - claim shape and falsifiability
+    - verification method selection
+    - counterexample logic
+    - limits of each proof surface
+  demonstrate:
+    - verify one claim through an executable method
+    - preserve result and counterevidence
+  reconstruct:
+    - rebuild the verifier from a blank state
+    - derive acceptance criteria before seeing the prior result
+  transfer:
+    - select a verifier for a materially different claim
+    - teach another learner to distinguish evidence from confidence
+
+learner:
+  starting_state: novice-or-partially-capable
+  target_state: independently reconstructs, verifies, transfers, and teaches the domain method
+  allowed_support:
+    - Genius-Mastery contracts
+    - domain sources and evidence
+    - live tools and runtimes
+
+verification:
+  acceptance:
+    - Learner can explain the method and its failure modes.
+    - Learner can reconstruct a result from a blank state.
+    - Learner can transfer the method to a novel case.
+    - Learner can distinguish verified capability from mapped aspiration.
+  evidence_refs: []
+  transfer_challenges:
+    - Verify a claim with two independent methods.
+    - Find a counterexample to an overbroad claim.
+    - Transfer a property-testing method to a new domain.
+  counterevidence: []
+
+outcome_metrics:
+  reconstruction_success: 0.0
+  transfer_success: 0.0
+  explanation_quality: 0.0
+  independence: 0.0
