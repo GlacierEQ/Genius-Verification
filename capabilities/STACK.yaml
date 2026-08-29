@@ -1,0 +1,160 @@
+schema_version: 1
+id: genius-verification.vertical-excellence
+name: Genius Verification Vertical Excellence
+purpose: Make verification a complete entity spanning evidence, tests, formal methods, observability, independent readback, and proof of real effects.
+state: mapped
+
+objective:
+  current_reality: "Verification mastery scaffold, property-testing method seed, model-checking skeleton, evidence discipline, and Buildkite verification exist."
+  desired_reality: "Any material capability claim can be mapped to the strongest applicable verification route, executed, independently read back, and preserved as evidence without confusing one failed verifier with failure of the whole mission."
+  success_conditions:
+    - Mission-relevant dependencies are explicit.
+    - Working capability is preserved when optional routes degrade.
+    - Higher-order compositions add emergent capability rather than instruction duplication.
+    - Capability claims are bounded by observed evidence.
+
+layers:
+  knowledge:
+    required: ["verification theory", "testing methods", "formal methods", "failure models"]
+    available: ["domain map and source nucleus"]
+    missing: ["deep method corpus"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["populate authoritative method evidence"]
+  reasoning:
+    required: ["claim decomposition", "counterexample search", "invariant reasoning", "uncertainty calibration"]
+    available: ["model-mediated reasoning"]
+    missing: ["method-routing benchmarks"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["select verification method by claim shape"]
+  skills:
+    required: ["test", "fuzz", "model-check", "prove", "inspect", "reproduce", "read back"]
+    available: ["property-testing seed"]
+    missing: ["full executable verifier inventory"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["promote proven methods into reusable capability nodes"]
+  capability_composition:
+    required: ["claim + verifier + evidence + readback"]
+    available: ["interfaces/COMPOSITION.yaml"]
+    missing: ["automatic verifier composition"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["compose multiple independent proof surfaces without quorum paralysis"]
+  tools:
+    required: ["test frameworks", "fuzzers", "sanitizers", "static analyzers", "model checkers", "proof assistants"]
+    available: ["Hypothesis path"]
+    missing: ["estate-wide verification tool inventory"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["tool capability and environment discovery"]
+  representation:
+    required: ["exact claim representation", "tool-readable input", "result projection"]
+    available: ["claims/evidence schemas"]
+    missing: ["cross-tool normalization"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["preserve semantics across tool/model projection"]
+  verification:
+    required: ["acceptance criteria", "tests", "evidence refs", "independent readback"]
+    available: ["Buildkite receipts", "evidence ledger"]
+    missing: ["capability-level proof graph"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["bind evidence directly to capability state"]
+  observability:
+    required: ["logs", "results", "exit state", "artifact hashes", "timing"]
+    available: ["CI terminal receipts"]
+    missing: ["cross-verifier telemetry"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["normalize verifier observations"]
+  reliability_recovery:
+    required: ["alternate verifier", "reproduction", "recheck", "reconciliation"]
+    available: ["evidence preservation doctrine"]
+    missing: ["automatic alternate-route selection"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["verification routing without global veto"]
+  security_integrity:
+    required: ["source identity", "artifact integrity", "tamper visibility"]
+    available: ["SHA-256 receipt pattern"]
+    missing: ["broader provenance binding"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["provenance graph"]
+  real_world_effect:
+    required: ["bounded claim proven, disproven, or uncertainty narrowed"]
+    available: ["verified CI examples"]
+    missing: ["broad domain proof portfolio"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["verify cross-Genius capabilities"]
+  learning_evolution:
+    required: ["failure/counterexample retention", "method effectiveness measurement"]
+    available: ["counterevidence structure", "frontier queue"]
+    missing: ["method performance ranking"]
+    alternate_routes: []
+    failure_modes: []
+    improvement_targets: ["learn which verifier works best for which claim class"]
+
+dependencies:
+  - id: mastery.kernel.capability-anatomy
+    relationship: requires
+    required_for_current_mission: true
+    alternate_routes: []
+  - id: mastery.kernel.capability-schema
+    relationship: requires
+    required_for_current_mission: true
+    alternate_routes: []
+
+action:
+  preconditions:
+    - Domain objective is explicit.
+  steps:
+    - Decompose the objective through the vertical stack.
+    - Discover available skills, tools, connectors, evidence, and alternate routes.
+    - Identify mission-sensitive bottlenecks.
+    - Compose the strongest executable route.
+    - Execute and verify the real effect.
+    - Preserve evidence and feed the gain into the next spiral.
+  expected_effects:
+    - Hidden low-level blockers become exact capability gaps.
+    - High-leverage improvements propagate upward.
+  postconditions:
+    - Current capability state reflects evidence.
+  alternate_routes: []
+  failure_modes:
+    - Treating an unavailable implementation as absence of the capability itself.
+  recovery_routes:
+    - Discover substitutes and reroute before declaring a scoped blocked state.
+
+verification:
+  acceptance:
+    - capabilities/STACK.yaml passes the Genius-Mastery structural validator.
+    - Material capability claims cite observed evidence before promotion.
+  tests: []
+  evidence_refs: []
+  independent_readback: []
+
+mission_impact:
+  mission_relevance: 1.0
+  necessity: 1.0
+  criticality: 1.0
+  sensitivity: 1.0
+  substitutability: 0.2
+  downstream_centrality: 1.0
+  improvement_leverage: 1.0
+  rationale: The vertical stack is the reusable substrate for every mission in this Genius domain.
+
+evolution:
+  current_bottleneck: "Expand from verification scaffolds into executable multi-method proof routes with capability-level evidence binding."
+  improvement_targets:
+    - capability proof graph
+    - alternate verifier routing
+    - formal method implementations
+    - cross-Genius verification service
+  affected_capabilities: []
+  newly_possible_compositions: []
+  next_frontier: []
