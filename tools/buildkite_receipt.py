@@ -31,6 +31,7 @@ def main() -> int:
     parser.add_argument("--repository", required=True)
     parser.add_argument("--output", default=".verification-artifacts/buildkite-verified-receipt.json")
     parser.add_argument("--artifact", action="append", default=[])
+    parser.add_argument("--proof", action="append", default=[])
     args = parser.parse_args()
 
     commit = require_env("BUILDKITE_COMMIT")
@@ -65,6 +66,20 @@ def main() -> int:
             "size_bytes": path.stat().st_size,
         }
 
+    proof_artifacts = []
+    for raw_path in args.proof:
+        proof_path = Path(raw_path)
+        if not proof_path.is_file():
+            raise RuntimeError(f"required proof artifact missing: {proof_path}")
+        payload = proof_path.read_bytes()
+        proof_artifacts.append(
+            {
+                "path": proof_path.as_posix(),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+                "size_bytes": len(payload),
+            }
+        )
+
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     receipt = {
@@ -92,8 +107,10 @@ def main() -> int:
             "tracked_worktree_clean": True,
             "pipeline_identity_match": True,
             "artifact_count": len(artifact_digests),
+            "proof_count": len(proof_artifacts),
         },
         "artifacts": artifact_digests,
+        "proof_artifacts": proof_artifacts,
         "credential_values_recorded": False,
     }
     encoded = (json.dumps(receipt, indent=2, sort_keys=True) + "\n").encode("utf-8")
