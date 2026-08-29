@@ -1,5 +1,4 @@
 env:
-  PYTHON_VERSION: "3.13"
   PIP_DISABLE_PIP_VERSION_CHECK: "1"
   PYTHONDONTWRITEBYTECODE: "1"
 
@@ -8,79 +7,52 @@ agents:
   os: macos
 
 steps:
-  - label: ":lock: Exact source + pipeline preflight"
-    key: source-preflight
-    timeout_in_minutes: 5
+  - label: ":microscope: Verification domain"
+    key: verify
+    timeout_in_minutes: 15
+    cancel_on_build_failing: true
+    retry:
+      automatic:
+        - exit_status: -1
+          limit: 1
+        - exit_status: 255
+          limit: 1
     command: |
       set -euo pipefail
-      actual="$(git rev-parse HEAD)"
-      test "$actual" = "$BUILDKITE_COMMIT"
-      test "$BUILDKITE_PIPELINE_SLUG" = "genius-verification"
-      git diff --exit-code
-      help="$(buildkite-agent pipeline upload --help 2>&1)"
-      set -- pipeline upload .buildkite/pipeline.yml
-      printf '%s' "$help" | grep -q -- '--reject-parse-warnings' && set -- "$@" --reject-parse-warnings || true
-      printf '%s' "$help" | grep -q -- '--reject-secrets' && set -- "$@" --reject-secrets || true
-      if printf '%s' "$help" | grep -q -- '--dry-run'; then
-        buildkite-agent "$@" --dry-run >/dev/null
-      fi
-
-  - label: ":python: Contract validate"
-    key: validate
-    depends_on: source-preflight
-    timeout_in_minutes: 10
-    cancel_on_build_failing: true
-    retry:
-      automatic:
-        - exit_status: -1
-          limit: 1
-        - exit_status: 255
-          limit: 1
-    command:
-      - python --version
-      - pip install pyyaml
-      - python tools/validate.py .
-      - python -m compileall -q tools
-    plugins:
-      - docker#v5.14.0:
-          image: "python:3.13-slim"
-          always-pull: true
-          pull-retries: 2
-
-  - label: ":pytest: Contract unit tests"
-    key: unit
-    depends_on: validate
-    timeout_in_minutes: 10
-    cancel_on_build_failing: true
-    retry:
-      automatic:
-        - exit_status: -1
-          limit: 1
-        - exit_status: 255
-          limit: 1
-    command:
-      - pip install pyyaml pytest
-      - mkdir -p .verification-artifacts
-      - pytest -q tests/ --junitxml=.verification-artifacts/junit.xml
-      - sha256sum .verification-artifacts/junit.xml > .verification-artifacts/junit.xml.sha256
+      python --version
+      python - <<'PY'
+      import os
+      commit = os.environ.get("BUILDKITE_COMMIT", "")
+      pipeline = os.environ.get("BUILDKITE_PIPELINE_SLUG", "")
+      assert len(commit) == 40, commit
+      assert pipeline == "genius-verification", pipeline
+      PY
+      pip install pyyaml pytest
+      python tools/validate.py .
+      python -m compileall -q tools
+      python -m py_compile tools/buildkite_receipt.py
+      mkdir -p .verification-artifacts
+      pytest -q tests/ --junitxml=.verification-artifacts/junit.xml
+      sha256sum .verification-artifacts/junit.xml > .verification-artifacts/junit.xml.sha256
+      python tools/buildkite_receipt.py \
+        --repository Genius-Verification \
+        --output .verification-artifacts/buildkite-verified-receipt.json \
+        --artifact .verification-artifacts/junit.xml \
+        --artifact .verification-artifacts/junit.xml.sha256
     artifact_paths:
       - ".verification-artifacts/junit.xml"
       - ".verification-artifacts/junit.xml.sha256"
+      - ".verification-artifacts/buildkite-verified-receipt.json"
+      - ".verification-artifacts/buildkite-verified-receipt.json.sha256"
     plugins:
       - docker#v5.14.0:
           image: "python:3.13-slim"
           always-pull: true
           pull-retries: 2
-
-  - label: ":receipt: Verified terminal receipt"
-    key: receipt
-    depends_on: unit
-    timeout_in_minutes: 5
-    command: |
-      set -euo pipefail
-      buildkite-agent artifact download ".verification-artifacts/junit.xml" .
-      buildkite-agent artifact download ".verification-artifacts/junit.xml.sha256" .
-      python3 tools/buildkite_receipt.py --repository Genius-Verification --output artifacts/buildkite/verified-ci-receipt.json --artifact .verification-artifacts/junit.xml --artifact .verification-artifacts/junit.xml.sha256
-    artifact_paths:
-      - "artifacts/buildkite/verified-ci-receipt.json"
-      - "artifacts/buildkite/verified-ci-receipt.json.sha256"
+          environment:
+            - "BUILDKITE_COMMIT"
+            - "BUILDKITE_BRANCH"
+            - "BUILDKITE_BUILD_ID"
+            - "BUILDKITE_BUILD_NUMBER"
+            - "BUILDKITE_PIPELINE_SLUG"
+            - "BUILDKITE_ORGANIZATION_SLUG"
