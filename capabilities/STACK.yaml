@@ -91,6 +91,13 @@ layers:
     alternate_routes: []
     failure_modes: []
     improvement_targets: ["verify cross-Genius capabilities"]
+  teaching:
+    required: ["explain proof boundaries", "reconstruct verification methods", "transfer verification across claim classes", "teach evidence discipline"]
+    available: [teaching/TEACHING.yaml]
+    missing: [measured learner outcomes]
+    alternate_routes: [human review, reconstruction challenges]
+    failure_modes: [memorized answer without transfer, unverified instruction propagation]
+    improvement_targets: [teaching benchmarks, transfer evidence, descendant independence]
   learning_evolution:
     required: ["failure/counterexample retention", "method effectiveness measurement"]
     available: ["counterevidence structure", "frontier queue"]
