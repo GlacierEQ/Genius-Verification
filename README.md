@@ -1,5 +1,7 @@
 # Genius-Verification
 
+[![Buildkite](https://badge.buildkite.com/7584c53dee7ea5a56fb7285cc4c67007fc275bfd5d7598222f.svg)](https://buildkite.com/casey-1/genius-verification)
+
 Domain repository for **verification mastery**.
 
 Identity: `Genius-Verification` only (hyphenated; no colon-form dual identity).
@@ -35,7 +37,7 @@ Composes with:
 | Challenge ladder | Skeleton |
 | Evidence ledger | Empty |
 | Model-checking / fuzzer harnesses | Not yet populated |
-| External CI | Unverified until Actions run |
+| Buildkite CI (`casey-1/genius-verification`) | Observed PASS on [build #1](https://buildkite.com/casey-1/genius-verification/builds/1) @ `8ff682260a36f42b953f146622488fd557cc20f3` |
 
 ## License
 
