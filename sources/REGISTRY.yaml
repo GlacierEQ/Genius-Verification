@@ -8,18 +8,31 @@ sources:
     domain_tags: [property-testing]
     version: current
     first_seen: "2026-08-29"
-    last_verified: "2026-08-29"
+    last_verified: "2026-09-12"
     supports_claims: [verif-property-method-001]
     challenges_claims: []
+    trust_notes: Canonical Python property-based testing documentation; use with explicit generator and shrinking analysis.
+  - id: src-quickcheck-2000
+    title: "QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs"
+    url: https://research.chalmers.se/en/publication/237427
+    authority: paper
+    publisher: Chalmers / ICFP 2000
+    domain_tags: [property-testing, generators, shrinking, research]
+    version: original-paper
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: [verif-property-method-001]
+    challenges_claims: []
+    trust_notes: Foundational property-based testing paper by Koen Claessen and John Hughes.
   - id: src-libfuzzer
     title: LLVM libFuzzer
     url: https://llvm.org/docs/LibFuzzer.html
     authority: primary
     publisher: LLVM Project
-    domain_tags: [fuzzing]
+    domain_tags: [fuzzing, coverage-guided]
     version: current
     first_seen: "2026-08-29"
-    last_verified: "2026-08-29"
+    last_verified: "2026-09-12"
     supports_claims: []
     challenges_claims: []
   - id: src-asan
@@ -27,10 +40,10 @@ sources:
     url: https://clang.llvm.org/docs/AddressSanitizer.html
     authority: primary
     publisher: LLVM/Clang
-    domain_tags: [sanitizers]
+    domain_tags: [sanitizers, memory-safety]
     version: current
     first_seen: "2026-08-29"
-    last_verified: "2026-08-29"
+    last_verified: "2026-09-12"
     supports_claims: []
     challenges_claims: []
   - id: src-tsan
@@ -38,31 +51,103 @@ sources:
     url: https://clang.llvm.org/docs/ThreadSanitizer.html
     authority: primary
     publisher: LLVM/Clang
-    domain_tags: [sanitizers, concurrency]
+    domain_tags: [sanitizers, concurrency, races]
     version: current
     first_seen: "2026-08-29"
-    last_verified: "2026-08-29"
+    last_verified: "2026-09-12"
     supports_claims: []
     challenges_claims: []
-  - id: src-learntla
-    title: Learn TLA+
-    url: https://www.learntla.com/
-    authority: specialist
-    publisher: Hillel Wayne / community
-    domain_tags: [model-checking, formal]
+  - id: src-ubsan
+    title: UndefinedBehaviorSanitizer
+    url: https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html
+    authority: primary
+    publisher: LLVM/Clang
+    domain_tags: [sanitizers, undefined-behavior, runtime-verification]
     version: current
-    first_seen: "2026-08-29"
-    last_verified: "2026-08-29"
-    supports_claims: [verif-model-check-001]
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: []
     challenges_claims: []
+    trust_notes: Primary detector documentation; results are execution- and configuration-dependent rather than universal proofs.
   - id: src-codeql
     title: GitHub CodeQL Code Scanning
     url: https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning
     authority: primary
     publisher: GitHub
-    domain_tags: [static-analysis]
+    domain_tags: [static-analysis, code-scanning]
+    version: current
+    first_seen: "2026-08-29"
+    last_verified: "2026-09-12"
+    supports_claims: []
+    challenges_claims: []
+  - id: src-tla-lamport
+    title: Leslie Lamport TLA+ Home Page and Tools
+    url: https://lamport.azurewebsites.net/tla/tla.html
+    authority: primary
+    publisher: Leslie Lamport
+    domain_tags: [formal-specification, model-checking, concurrency, distributed]
+    version: current-author-surface
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: [verif-model-check-001]
+    challenges_claims: []
+    trust_notes: Creator-maintained TLA+ authority surface; TLC checks safety and liveness properties over executable specifications.
+  - id: src-lamport-science-concurrent-2026
+    title: A Science of Concurrent Programs
+    url: https://lamport.azurewebsites.net/tla/science-book.html
+    authority: primary
+    publisher: Leslie Lamport / Cambridge University Press
+    domain_tags: [concurrency, formal-specification, tla-plus, refinement]
+    version: 2026
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: [verif-model-check-001]
+    challenges_claims: []
+    trust_notes: 2026 book and supporting TLA+ specifications for rigorous reasoning about concurrent programs.
+  - id: src-alloy-6
+    title: Alloy Language and Analyzer
+    url: https://alloytools.org/
+    authority: primary
+    publisher: AlloyTools / MIT Software Design Group lineage
+    domain_tags: [formal-modeling, relational-logic, temporal-model-checking, bounded-analysis]
+    version: "6.2.0"
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: []
+    challenges_claims: []
+    trust_notes: Alloy 6 adds mutable state and temporal logic; Analyzer searches bounded structures and counterexamples through SAT/model checking.
+  - id: src-dafny
+    title: Dafny Programming and Verification Language
+    url: https://dafny.org/
+    authority: primary
+    publisher: Dafny project
+    domain_tags: [deductive-verification, specifications, smt, program-proofs]
+    version: current
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: []
+    challenges_claims: []
+    trust_notes: Verification-aware programming language with built-in specifications and static verification against verification conditions.
+  - id: src-lean-reference
+    title: Lean Language Reference
+    url: https://lean-lang.org/doc/reference/latest
+    authority: primary
+    publisher: Lean project
+    domain_tags: [theorem-proving, dependent-types, proof-kernel, software-verification]
+    version: current
+    first_seen: "2026-09-12"
+    last_verified: "2026-09-12"
+    supports_claims: []
+    challenges_claims: []
+    trust_notes: Lean 4 uses dependent type theory and a small proof-checking kernel, useful for minimizing trusted-base assumptions in mechanized proof.
+  - id: src-learntla
+    title: Learn TLA+
+    url: https://www.learntla.com/
+    authority: specialist
+    publisher: Hillel Wayne / community
+    domain_tags: [model-checking, formal, tutorial]
     version: current
     first_seen: "2026-08-29"
     last_verified: "2026-08-29"
-    supports_claims: []
+    supports_claims: [verif-model-check-001]
     challenges_claims: []
