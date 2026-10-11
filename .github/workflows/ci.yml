@@ -1,5 +1,10 @@
 name: CI
+
 on: [push, pull_request]
+
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -7,7 +12,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-      - run: pip install pytest ruff
-      - run: PYTHONPATH=src pytest tests/ -v
-      - run: ruff check src/ tests/
+          python-version: "3.13"
+          cache: pip
+      - name: Install test and lint dependencies
+        run: pip install pytest ruff pyyaml
+      - name: Compile runtime sources
+        run: python -m compileall -q src tools
+      - name: Run full verification suite
+        run: PYTHONPATH=src pytest tests/ -q
+      - name: Lint runtime and tests
+        run: ruff check src/ tests/

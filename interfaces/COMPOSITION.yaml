@@ -11,6 +11,19 @@ provides:
     stage: mapped
     interface: challenges/
     evidence_refs: []
+  - id: verification.evidence.receipt
+    description: Immutable, payload-bound, cryptographically linked operation receipt primitive with executable chain-integrity checks.
+    stage: verified
+    interface: src/genius_verification/core.py
+    evidence_refs:
+      - ev-bk-verif-001
+      - ev-bk-verif-002
+  - id: verification.counterevidence.first-class
+    description: Verification doctrine that preserves counterexamples and failing runs as first-class evidence instead of deleting contradictory evidence.
+    stage: verified
+    interface: claims/CLAIMS.yaml
+    evidence_refs:
+      - ev-bk-verif-002
 consumes:
   - repository: Genius-Mastery
     capability: mastery.kernel.schemas
@@ -24,7 +37,6 @@ consumes:
     capability: mastery.kernel.capability-schema
     minimum_spec_version: 1
     reason: Shared machine-readable universal capability contract.
-
   - repository: Genius-Mastery
     capability: mastery.kernel.teaching-contract
     minimum_spec_version: 1
