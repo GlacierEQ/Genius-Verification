@@ -21,7 +21,7 @@ claims:
   - id: verif-evidence-receipt-001
     statement: A verification run that supports a claim must be able to emit a durable receipt containing command, environment, result, and artifact identity (hash when local).
     dimension: foundations
-    status: verified
+    status: operationally_verified
     source_refs: []
     evidence_refs:
       - ev-bk-verif-001
@@ -32,7 +32,7 @@ claims:
   - id: verif-counterexample-001
     statement: Counterexamples and failing runs are first-class evidence; discarding them to preserve a narrative weakens the repository.
     dimension: foundations
-    status: verified
+    status: operationally_verified
     source_refs: []
     evidence_refs:
       - ev-bk-verif-002

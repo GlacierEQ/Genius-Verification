@@ -1,6 +1,6 @@
 schema_version: 1
 teacher: Genius-Verification
-subject: Verification mastery: claims, tests, fuzzing, formal methods, readback, provenance, and counterevidence
+subject: "Verification mastery: claims, tests, fuzzing, formal methods, readback, provenance, and counterevidence"
 
 method:
   explain:
