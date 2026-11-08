@@ -94,7 +94,7 @@ def main() -> int:
         "build_id": build_id,
         "build_number": build_number,
         "build_url": f"https://buildkite.com/{organization}/{pipeline}/builds/{build_number}",
-        "generated_at": dt.datetime.now(dt.timezone.utc)
+        "generated_at": dt.datetime.now(dt.UTC)
         .replace(microsecond=0)
         .isoformat()
         .replace("+00:00", "Z"),

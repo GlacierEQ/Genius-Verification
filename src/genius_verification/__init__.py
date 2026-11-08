@@ -1,3 +1,15 @@
-"""Production-grade Genius Verification system with strict contract enforcement, receipt-backed operations, and verified test coverage."""
+from __future__ import annotations
 
-__version__ = "1.0.0"
+from .core import ContractEnforcer, OperationReceipt
+from .crypto import ReceiptSigner
+from .ledger import AuditLedger
+from .validator import ContractSchemaValidator
+
+__version__ = "1.1.0"
+__all__ = [
+    "AuditLedger",
+    "ContractEnforcer",
+    "ContractSchemaValidator",
+    "OperationReceipt",
+    "ReceiptSigner",
+]
