@@ -1,6 +1,8 @@
 # Genius-Verification
 
 [![Buildkite](https://badge.buildkite.com/7584c53dee7ea5a56fb7285cc4c67007fc275bfd5d7598222f.svg)](https://buildkite.com/casey-1/genius-verification)
+[![CI](https://github.com/GlacierEQ/Genius-Verification/actions/workflows/ci.yml/badge.svg)](https://github.com/GlacierEQ/Genius-Verification/actions/workflows/ci.yml)
+[![validate-contract](https://github.com/GlacierEQ/Genius-Verification/actions/workflows/validate.yml/badge.svg)](https://github.com/GlacierEQ/Genius-Verification/actions/workflows/validate.yml)
 
 Domain repository for **verification mastery**.
 
